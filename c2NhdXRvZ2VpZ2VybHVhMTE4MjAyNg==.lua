@@ -1,21 +1,3 @@
--- ==========================================================================
--- AUTO GEIGER CGT v2 (Creative Growtopia / ReGrowtopia)
--- v2: nilai ring dibaca dari pos2_x (nama field Libre) atau xspeed (BotHax); kalau tidak ada
---     field yang dikenal, isi paket dicetak ke console (bukan lagi dianggap "red" diam-diam).
--- Port dari script Auto Geiger BotHax ke aturan CGT, gaya sama dengan PNB V3:
---   - semua setting ada di tabel Cfg (bisa diubah lewat jendela UI)
---   - tanpa RunThread: timer "Break" pakai os.time di loop utama
---   - lokasi drop item TIDAK lagi pakai koordinat tetap, tapi dicari lewat BACKGROUND ID:
---       AliveGeigerBG = background tile tempat Geiger Counter hidup disimpan (diambil dengan berjalan
---                       di atasnya; 0 = lewati). Menggantikan aliveGeigerPos di script asli.
---       ItemDropBG = background tile tempat berdiri untuk drop item (stuff, crystal, dll)
---       DeadDropBG = background tile tempat berdiri untuk drop Dead Geiger
---                    (kalau 0, Dead Geiger dijatuhkan di area ItemDropBG)
---     Tile dengan background itu diurutkan dari kanan ke kiri; kalau satu tile penuh
---     ("You can't drop"), script pindah ke tile berikutnya.
---   - webhook memakai MakeRequest (otomatis mati kalau MakeRequest tidak ada)
--- ==========================================================================
-
 local Cfg = {
   WorldGeiger    = "GEIGERB",
   WorldSave      = "OSMORAGEIGER",
